@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 /**
  * 1. Counter
  *
@@ -6,11 +7,17 @@
  */
 
 const Counter = () => {
-  let count = 0;
+  const [count, setCount] = useState<number>(0);
 
-  setInterval(() => {
-    count = count + 1;
-  }, 1);
+  useEffect(() => {
+    // Start setInterval on first mount
+    const interval = setInterval(() => {
+      setCount(count => count + 1);
+    }, 1000);
+
+    // Clear interval on unmount
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
