@@ -23,7 +23,7 @@ const Counter = () => {
       <div>
         <button
           onClick={(e) => {
-            e.stopPropagation();
+            e.stopPropagation(); // The magic
             setCountB(countB + 1);
           }}
         >
