@@ -21,13 +21,25 @@ const HolyGrail = () => {
       <h1>Holy Grail</h1>
       <img src={src} alt={"Holy Grail"} className={css.picture} />
 
-      <div className={css.wrapper}>
+      {/* Flexbox solution */}
+      {/* <div className={css.wrapper}>
         <header className={css.header}>Header</header>
         <main className={css.mainContainer}>
           <nav className={css.mainContainerBorder}>Menu</nav>
           <section className={css.mainContainerContent}>Content</section>
           <aside className={css.mainContainerBorder}>Ads</aside>
         </main>
+        <footer className={css.footer}>Footer</footer>
+      </div> */}
+
+      {/* Grid solution */}
+      <div className={css.wrapper}>
+        <header className={css.header}>Header</header>
+        {/* <main className={css.mainContainer}> */}
+        <nav className={css.nav}>Menu</nav>
+        <section className={css.section}>Content</section>
+        <aside className={css.aside}>Ads</aside>
+        {/* </main> */}
         <footer className={css.footer}>Footer</footer>
       </div>
     </Fragment>

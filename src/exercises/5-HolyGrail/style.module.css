@@ -2,7 +2,8 @@
   height: 300px;
 }
 
-.wrapper {
+/* Flexbox solution */
+/* .wrapper {
   height: 500px;
   width: 700px;
   background-color: #eee;
@@ -30,4 +31,41 @@
 .footer {
   border: 1px solid black;
   height: 20%;
+} */
+
+/* Grid solution */
+.wrapper {
+  height: 500px;
+  width: 700px;
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: 100px 1fr 100px;
+  grid-template-areas:
+    "header header header"
+    "nav section aside"
+    "footer footer footer";
+}
+
+.header {
+  border: 1px solid black;
+  grid-area: header;
+}
+
+.nav {
+  border: 1px solid black;
+  grid-area: nav;
+}
+.section {
+  border: 1px solid black;
+  grid-area: section;
+}
+.aside {
+  border: 1px solid black;
+  grid-area: aside;
+}
+
+.footer {
+  border: 1px solid black;
+  grid-area: footer;
 }
