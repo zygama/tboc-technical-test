@@ -16,9 +16,10 @@ interface Order {
 }
 
 const Refac: FC<{}> = () => {
-  const [member, setMember] = useState<string>();
-  const [code, setCode] = useState<string>();
-  const [order, setOrder] = useState<number>();
+  const [order, setOrder] = useState<Order>();
+  // const [member, setMember] = useState<string>();
+  // const [code, setCode] = useState<string>();
+  // const [order, setOrder] = useState<number>();
 
   const orderList: Order[] = [
     {
@@ -73,8 +74,8 @@ const Refac: FC<{}> = () => {
     <div>
       <h1>My Refac</h1>
       <pre>
-        You clicked on: {member || "—"} code: {code || "—"} order:{" "}
-        {order || "—"}
+        You clicked on: {order?.member || "—"} code: {order?.code || "—"} order:{" "}
+        {order?.order || "—"}
       </pre>
       <table>
         <thead>
@@ -85,19 +86,24 @@ const Refac: FC<{}> = () => {
           </tr>
         </thead>
         <tbody>
-          {orderList.map((order) => (
+          {orderList.map((orderEl) => (
             <tr>
               <td
                 onClick={() => {
-                  setMember(order.member);
-                  setCode(order.code);
-                  setOrder(order.order);
+                  setOrder({
+                    member: orderEl.member,
+                    code: orderEl.code,
+                    order: orderEl.order
+                  });
+                  // setMember(order.member);
+                  // setCode(order.code);
+                  // setOrder(order.order);
                 }}
               >
-                {order.member}
+                {orderEl.member}
               </td>
-              <td>{order.code}</td>
-              <td>{order.order}</td>
+              <td>{orderEl.code}</td>
+              <td>{orderEl.order}</td>
             </tr>
           ))}
         </tbody>
